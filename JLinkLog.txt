@@ -1,5 +1,5 @@
 
-T071C 000:544 SEGGER J-Link V4.80g Log File (0001ms, 0381ms total)
+
 T071C 000:544 DLL Compiled: Feb 13 2014 20:50:02 (0001ms, 0381ms total)
 T071C 000:544 Logging started @ 2015-01-17 01:18 (0001ms, 0381ms total)
 T071C 000:545 JLINK_SetWarnOutHandler(...) (0001ms, 0382ms total)
