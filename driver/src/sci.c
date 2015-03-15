@@ -19,21 +19,11 @@
 #include "includes.h"
 #include "sci.h"
 #include "led.h"
-//#include "pid.h"
-//#include "math.h"
-//#include "hall.h"
 #include <string.h>
-//#include "check.h"
-//#include "test.h"
 #include "main.h"
-//#include "current.h"
 #include "cli.h"
 
-/* 全局变量 */
 xQueueHandle bMessage;
-
-
-/* 本地变量 */
 cmdType cmdBuf;
 
 /*
@@ -115,9 +105,6 @@ void sciSendWord ( long word, xQueueHandle messageQueue )
 	sciSendChar( temp, bMessage );		
 }
 
-/****
-	*	发送字符串
-	*/
 void sciSendString( char * addr, xQueueHandle messageQueue )
 {
 	while( *addr != '\0' )
@@ -127,9 +114,6 @@ void sciSendString( char * addr, xQueueHandle messageQueue )
 	}
 }
 
-/****
-	*	整型转换成字符串	
-	*/
 char* int2String( int number, char* stringBuf )
 {
 	int temp = 10;
@@ -168,8 +152,6 @@ char* int2String( int number, char* stringBuf )
 			case 9: *stringBuf = '9'; break;
 			default: break;
 		}
-		
-		
 		stringBuf ++;
 	}
 	*stringBuf = '\0';
@@ -177,9 +159,6 @@ char* int2String( int number, char* stringBuf )
 	return stringHead;
 }
 
-/****
-	*	浮点型转换成字符串
-	*/
 char* float2String( float number, unsigned char resolution, char* stringBuf )
 {
 	char *stringHead = stringBuf;
@@ -237,9 +216,7 @@ char* float2String( float number, unsigned char resolution, char* stringBuf )
 	return stringHead;
 	
 }
-/****
-	*	整数转换成十六进制字符串
-	*/
+
 char* hex2String( long number, char* stringBuf )
 {
 	int temp = 16;
@@ -285,8 +262,6 @@ char* hex2String( long number, char* stringBuf )
 
 			default: break;
 		}
-		
-		
 		stringBuf ++;
 	}
 	*stringBuf = '\0';
@@ -327,9 +302,6 @@ void USART3_IRQHandler(void)
 	
 }
 
-/****
-	*	任务-sci发送 
-	*/
 void sciSendTask ( void *pvParameters )
 {
 	unsigned char buf;

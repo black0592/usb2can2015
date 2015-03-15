@@ -19,7 +19,6 @@
 #include "led.h"
 #include "includes.h"
 
-/* 全局变量 */
 int ledColour = TEST;//RED GREEN TEST
 int ledState = IDLE;// ON OFF IDLE
 int ledDelay = 100;
@@ -61,11 +60,6 @@ void LED_Configuration(void)
 	GPIO_Init(LED_PORT0,&GPIO_InitStructure);
 }
 
-
-/*
-* 打开LED 
-* 参数：颜色
-*/
 void LedOn( int ledColour )
 {
 	if(ledColour == GREEN)
@@ -87,9 +81,6 @@ void LedOn( int ledColour )
 		GPIO_WriteBit(LED_PORT0,LED_PIN2,Bit_RESET);
 	}
 }
-/*
-* 关闭LED
-*/
 void LedOff(void)
 {
 	if((ledColour == RED)||(ledColour == GREEN))
@@ -102,14 +93,7 @@ void LedOff(void)
 		GPIO_WriteBit(LED_PORT0,LED_PIN0,Bit_RESET);		
 	}
 }
-/*
-*** Led
-*/
 
-void Led()
-{
-
-}
 
 /*
 *	Led Flashing Task
